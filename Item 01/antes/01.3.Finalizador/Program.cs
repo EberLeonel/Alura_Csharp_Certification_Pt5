@@ -7,7 +7,7 @@ namespace _01._3.Finalizador_antes
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 100; i++)
+            for (int i = 0; i < 10000000; i++)
             {
                 Livro livro = new Livro();
             }
@@ -30,5 +30,12 @@ namespace _01._3.Finalizador_antes
             Id = UltimoId;
             Trace.WriteLine("Livro " + Id + " está sendo criado");
         }
+
+        //~Livro()
+        //{
+        //    //Liberar Somente os recursos não gerenciados, recurso que não
+        //    // foi criado com o .NET. Ex.: conexão com db
+        //    Trace.WriteLine("Livro " + Id + " está sendo finalizado");
+        //}
     }
 }
