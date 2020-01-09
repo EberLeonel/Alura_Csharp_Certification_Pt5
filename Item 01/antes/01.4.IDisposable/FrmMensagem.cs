@@ -13,9 +13,17 @@ namespace _01._4.IDisposable_Finalizador
 
         private void btnMensagem_Click(object sender, EventArgs e)
         {
-            MensageiroNotepad mensageiro = new MensageiroNotepad();
-            mensageiro.EnviarMensagem(txtMensagem.Text);
-            mensageiro.Dispose();
+            //MensageiroNotepad mensageiro = new MensageiroNotepad();
+            //mensageiro.EnviarMensagem(txtMensagem.Text);
+            //mensageiro.Dispose();
+
+            //Equivalente
+
+            using (MensageiroNotepad mensageiro = new MensageiroNotepad())
+            {
+                mensageiro.EnviarMensagem(txtMensagem.Text);
+            }
+
         }
     }
 }
