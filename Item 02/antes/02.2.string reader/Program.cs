@@ -12,11 +12,17 @@ namespace _02._2.string_reader
             //1) Ler sequencialmente a lista de ingredientes
             //linha a linha.
             //2) Cada Linha deve começar com um caracter "•" e um espaço
-
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
             string ingredientes = GetIngredientes();
+            using (StreamReader vFormat = new StreamReader(ingredientes))
+            {
+                string line;
 
-            Console.WriteLine(ingredientes);
-
+                while ((line = vFormat.ReadLine()) != null)
+                {
+                    Console.WriteLine("•" + line);
+                }
+            }
             Console.ReadKey();
         }
 
