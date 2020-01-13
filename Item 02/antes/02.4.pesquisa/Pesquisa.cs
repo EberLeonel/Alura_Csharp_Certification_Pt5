@@ -50,7 +50,7 @@ namespace _02._4.pesquisa
             //txtPesquisa: caixa de texto do Windows Forms
             var textoBusca = parametros.FirstOrDefault();
 
-            bool contem = false; //implementar busca
+            bool contem = txtPesquisa.Text.ToUpper().Contains(textoBusca.ToUpper());
 
             if (contem)
             {
@@ -66,7 +66,7 @@ namespace _02._4.pesquisa
         {
             var textoBusca = parametros.FirstOrDefault();
 
-            bool comecaCom = false; //implementar busca
+            bool comecaCom = txtPesquisa.Text.StartsWith(textoBusca, true, System.Globalization.CultureInfo.CurrentCulture);
 
             if (comecaCom)
             {
@@ -82,7 +82,7 @@ namespace _02._4.pesquisa
         {
             var textoBusca = parametros.FirstOrDefault();
 
-            var terminaCom = false; //implementar busca
+            var terminaCom = txtPesquisa.Text.EndsWith(textoBusca);
 
             if (terminaCom)
             {
@@ -98,7 +98,7 @@ namespace _02._4.pesquisa
         {
             var textoBusca = parametros.FirstOrDefault();
 
-            //indiceDe = ???; //implementar busca
+            indiceDe = txtPesquisa.Text.IndexOf(textoBusca);
 
             if (indiceDe == -1)
             {
@@ -131,10 +131,10 @@ namespace _02._4.pesquisa
             int.TryParse(parametros[0], out int indiceInicial);
             int.TryParse(parametros[1], out int comprimento);
 
-            //txtPesquisa.SelectionStart = ???
-            //txtPesquisa.SelectionLength = ???
+            //txtPesquisa.SelectionStart = ;
+            //txtPesquisa.SelectionLength = ;
 
-            string trecho = ""; //implementar busca
+            string trecho = txtPesquisa.Text.Substring(indiceInicial, comprimento); 
 
             return "O trecho selecionado é: " + trecho;
         }
@@ -144,7 +144,7 @@ namespace _02._4.pesquisa
             var antigoTexto = parametros[0];
             var novoTexto = parametros[1];
 
-            //txtPesquisa.Text = ??? implementar substituição
+            txtPesquisa.Text = txtPesquisa.Text.Replace(antigoTexto, novoTexto);
 
             return "Trecho substituído com sucesso.";
         }
